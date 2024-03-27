@@ -41,15 +41,21 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Floor
+  - name: Floor1
     uniqueID: 71567875
     locked: 0
-  - name: Player
-    uniqueID: 3202810711
+  - name: Floor2
+    uniqueID: 468479731
+    locked: 0
+  - name: Floor3
+    uniqueID: 1981037923
+    locked: 0
+  - name: Ceiling
+    uniqueID: 697338169
     locked: 0
   - name: Portal
     uniqueID: 1454654823
     locked: 0
-  - name: Ceiling
-    uniqueID: 697338169
+  - name: Character
+    uniqueID: 3202810711
     locked: 0
