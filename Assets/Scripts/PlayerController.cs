@@ -37,5 +37,7 @@ public class PlayerController : MonoBehaviour
         {
             transform.position = portal1.transform.position;
         }
+        Destroy(portal1);
+        Destroy(portal2);
     }
 }
