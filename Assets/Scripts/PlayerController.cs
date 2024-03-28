@@ -78,11 +78,16 @@ public class PlayerController : MonoBehaviour
         if (collision.tag == "portal1")
         {
             transform.position = portal2.transform.position;
+            Destroy(portal1);
+            Destroy(portal2);
         }
         else if (collision.tag == "portal2")
         {
             transform.position = portal1.transform.position;
+            Destroy(portal1);
+            Destroy(portal2);
         }
+
     }
 
     // diamonds
