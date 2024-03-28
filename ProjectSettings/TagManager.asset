@@ -7,6 +7,7 @@ TagManager:
   - portal1
   - portal2
   - diamond
+  - wall
   layers:
   - Default
   - TransparentFX
@@ -17,7 +18,7 @@ TagManager:
   - Flooring
   - Ceiling
   - Player
-  - 
+  - Projectile
   - 
   - 
   - 
@@ -61,4 +62,7 @@ TagManager:
     locked: 0
   - name: Character
     uniqueID: 3202810711
+    locked: 0
+  - name: Projectile
+    uniqueID: 2189905901
     locked: 0
