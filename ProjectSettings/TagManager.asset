@@ -8,6 +8,7 @@ TagManager:
   - portal2
   - diamond
   - wall
+  - Pointer
   layers:
   - Default
   - TransparentFX

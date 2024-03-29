@@ -24,16 +24,14 @@ public class PlayerController : MonoBehaviour
     GameObject portal2;
 
     public GameObject projectilePrefab;
-    Vector2 rightDirection = new Vector2(1, 0);
-    Vector2 leftDirection = new Vector2(-1, 0);
+    public SpotController spotController;
+    Vector2 mouseDirection = new Vector2();
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
-
-
 
         animator.SetFloat("LookX", 1f);
         invincibleTimer = timeInvincible;
@@ -42,6 +40,7 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        mouseDirection = spotController.transform.position;
 
         if (horizontal != 0f)
         {
@@ -52,7 +51,7 @@ public class PlayerController : MonoBehaviour
             }
             else if (horizontal < 0)
             {
-                animator.SetFloat("LookX", -1f); 
+                animator.SetFloat("LookX", -1f);
                 previousLook = -1f;
             }
         }
@@ -70,11 +69,10 @@ public class PlayerController : MonoBehaviour
         }
 
         // shooting
-
-        if (Input.GetMouseButtonDown(0)) {
+        if (Input.GetMouseButtonDown(0))
+        {
             Launch();
         }
-        //Debug.Log(horizontal);
     }
 
     private void FixedUpdate()
@@ -88,19 +86,16 @@ public class PlayerController : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D collision)
     {
         // portal
-        if (collision.tag == "portal1")
+        if (collision.CompareTag("portal1"))
         {
             transform.position = portal2.transform.position;
-            Destroy(portal1);
-            Destroy(portal2);
+            Destroy(collision.gameObject); // Destroy the collided portal
         }
-        else if (collision.tag == "portal2")
+        else if (collision.CompareTag("portal2"))
         {
             transform.position = portal1.transform.position;
-            Destroy(portal1);
-            Destroy(portal2);
+            Destroy(collision.gameObject); // Destroy the collided portal
         }
-
     }
 
     // diamonds
@@ -126,23 +121,12 @@ public class PlayerController : MonoBehaviour
 
         Debug.Log("Current HP: " + HP + "/" + MaxHP);
     }
-    void Launch() {
+
+    void Launch()
+    {
         GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.up * 0.5f, Quaternion.identity);
-
         Bullet projectile = projectileObject.GetComponent<Bullet>();
-        if (horizontal == 0)
-        {
-            projectile.Launch(rightDirection, 500);
-        }
-        else if (horizontal > 0)
-        {
-            projectile.Launch(rightDirection, 500);
-        }
-        else if (horizontal < 0)
-        {
-            projectile.Launch(leftDirection, 500);
-        }
-
-        //animator.SetTrigger("Launch");
+        projectile.Launch(mouseDirection, 500);
+        projectile.SetBulletNumber(collected);
     }
 }
