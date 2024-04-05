@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
 
     GameObject portal1;
     GameObject portal2;
+    int bulletNo = 0;
 
     public GameObject projectilePrefab;
     public SpotController spotController;
@@ -77,8 +78,8 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        portal1 = GameObject.FindWithTag("portal1");
-        portal2 = GameObject.FindWithTag("portal2");
+        portal1 = GameObject.FindGameObjectWithTag("portal1");
+        portal2 = GameObject.FindGameObjectWithTag("portal2");
         horizontal = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
     }
@@ -127,6 +128,6 @@ public class PlayerController : MonoBehaviour
         GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.up * 0.5f, Quaternion.identity);
         Bullet projectile = projectileObject.GetComponent<Bullet>();
         projectile.Launch(mouseDirection, 500);
-        projectile.SetBulletNumber(collected);
+        projectile.SetBulletNumber(bulletNo++);
     }
 }
