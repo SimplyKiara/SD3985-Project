@@ -22,9 +22,9 @@ public class PlayerController : MonoBehaviour
 
     GameObject portal1;
     GameObject portal2;
-    int bulletNo = 0;
 
     public GameObject projectilePrefab;
+    private int bulletNumber = 0;
     public SpotController spotController;
     Vector2 mouseDirection = new Vector2();
 
@@ -86,16 +86,23 @@ public class PlayerController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        // portal
         if (collision.CompareTag("portal1"))
         {
-            transform.position = portal2.transform.position;
-            Destroy(collision.gameObject); // Destroy the collided portal
+            if (portal2 != null && collision.gameObject != portal2)
+            {
+                transform.position = portal2.transform.position;
+                Destroy(portal1); // Destroy the collided portal
+                Destroy(portal2);
+            }
         }
         else if (collision.CompareTag("portal2"))
         {
-            transform.position = portal1.transform.position;
-            Destroy(collision.gameObject); // Destroy the collided portal
+            if (portal1 != null && collision.gameObject != portal1)
+            {
+                transform.position = portal1.transform.position;
+                Destroy(portal1); // Destroy the collided portal
+                Destroy(portal2);
+            }
         }
     }
 
@@ -127,7 +134,17 @@ public class PlayerController : MonoBehaviour
     {
         GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.up * 0.5f, Quaternion.identity);
         Bullet projectile = projectileObject.GetComponent<Bullet>();
+        projectile.Initialize(this);
         projectile.Launch(mouseDirection, 500);
-        projectile.SetBulletNumber(bulletNo++);
+    }
+
+    public int GetBulletNumber()
+    {
+        return bulletNumber;
+    }
+
+    public void IncrementBulletNumber()
+    {
+        bulletNumber++;
     }
 }
