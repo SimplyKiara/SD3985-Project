@@ -81,7 +81,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -138,6 +138,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalPrefab1: {fileID: 5179804331934380804, guid: 6a139ea7bcaedea428c9d5d6e71e55a4, type: 3}
   portalPrefab2: {fileID: 2586032316031626151, guid: 3f4df05364b3f8f478ebc1d5d5577e11, type: 3}
+  currentlocation: {x: 0, y: 0}
+  previouslocation: {x: 0, y: 0}
+  direction: {x: 0, y: 0}
+  rotation: {x: 0, y: 0, z: 0, w: 0}
+  rotation2: {x: 0, y: 0, z: 0, w: 0}
   portalAudio: {fileID: 8300000, guid: 7ffab5c2acbd9dc42ba1ff65cd70e342, type: 3}
 --- !u!95 &8614498278291497071
 Animator:
@@ -147,7 +152,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9069591990623474097}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 3ac72e06f36537a41a701c3dc4ed3cc5, type: 2}
   m_CullingMode: 0

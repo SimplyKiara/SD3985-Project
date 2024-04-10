@@ -130,6 +130,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2075453142109228219, guid: eae7634f7dc770240bcd994e37bc37f1, type: 3}
+      propertyPath: m_SortingLayer
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2075453142109228219, guid: eae7634f7dc770240bcd994e37bc37f1, type: 3}
+      propertyPath: m_SortingLayerID
+      value: -1092156585
+      objectReference: {fileID: 0}
     - target: {fileID: 2135769315596208059, guid: eae7634f7dc770240bcd994e37bc37f1, type: 3}
       propertyPath: m_UsedByComposite
       value: 0
@@ -137,6 +145,10 @@ PrefabInstance:
     - target: {fileID: 3926444333994884003, guid: eae7634f7dc770240bcd994e37bc37f1, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3926444333994884003, guid: eae7634f7dc770240bcd994e37bc37f1, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 3926444333994884003, guid: eae7634f7dc770240bcd994e37bc37f1, type: 3}
       propertyPath: m_TagString
@@ -566,6 +578,7 @@ MonoBehaviour:
   invincibleTimer: 0
   projectilePrefab: {fileID: 9069591990623474097, guid: 414694d5eb51b78428aa2228b75361dd, type: 3}
   spotController: {fileID: 1922675297}
+  mouseDirection: {x: 0, y: 0, z: 0}
   deathAudio: {fileID: 2111439175}
   teleportAudio: {fileID: 2111439174}
 --- !u!95 &2111439173

@@ -16,10 +16,17 @@ public class Bullet : MonoBehaviour
     float dirX = 0;
     float dirY = 0;
 
+    public Vector2 currentlocation;
+    public Vector2 previouslocation;
+    public Vector2 direction;
+    public Quaternion rotation;
+    public Quaternion rotation2;
+
     public AudioSource portalAudio;
 
     void Awake()
     {
+        currentlocation = transform.position;
         rigidbody2d = GetComponent<Rigidbody2D>();
         animator = GetComponent<Animator>();
         timeLeft = flightTime;
@@ -38,6 +45,20 @@ public class Bullet : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void FixedUpdate()
+    {
+        // bullet direction
+        previouslocation = currentlocation;
+        currentlocation = transform.position;
+        direction = currentlocation - previouslocation;
+        rotation = Quaternion.LookRotation(direction, Vector3.forward);
+        rotation2.x = 0;
+        rotation2.y = 0;
+        rotation2.z = rotation.z;
+        rotation2.w = rotation.w;
+        transform.rotation = rotation2;
     }
 
     public void Launch(Vector3 direction, float force)
@@ -64,8 +85,6 @@ public class Bullet : MonoBehaviour
         }
         animator.SetFloat("MoveY", dirY);
     }
-
-
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("wall"))
@@ -75,14 +94,15 @@ public class Bullet : MonoBehaviour
 
             Destroy(gameObject);
 
-            if (bulletNumber % 2 == 1)
+            if (rotation2.z < 0)
             {
-                Instantiate(portalPrefab1, transform.position, Quaternion.identity);
+                GameObject Object = Instantiate(portalPrefab1, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
             }
-            else
+            else if (rotation2.z > 0)
             {
-                Instantiate(portalPrefab2, transform.position, Quaternion.identity);
+                GameObject Object = Instantiate(portalPrefab2, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
             }
+                
 
             portalAudio.Play();
         }

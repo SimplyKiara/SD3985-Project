@@ -26,7 +26,7 @@ public class PlayerController : MonoBehaviour
     public GameObject projectilePrefab;
     private int bulletNumber = 0;
     public SpotController spotController;
-    Vector2 mouseDirection = new Vector2();
+    public Vector3 mouseDirection = new Vector2();
 
     public AudioSource deathAudio;
     public AudioSource teleportAudio;
@@ -148,7 +148,8 @@ public class PlayerController : MonoBehaviour
         GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.up * 0.5f, Quaternion.identity);
         Bullet projectile = projectileObject.GetComponent<Bullet>();
         projectile.Initialize(this);
-        projectile.Launch(mouseDirection, 500);
+        
+        projectile.Launch(mouseDirection - this.gameObject.transform.position, 500);
     }
 
     public int GetBulletNumber()
