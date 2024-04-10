@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     float previousLook = 1f;
 
     private int collected = 0;
-    private int HP = 50;
+    private int HP = 1;
     public int MaxHP;
     public int currentHP { get => HP; }
 
@@ -27,6 +27,9 @@ public class PlayerController : MonoBehaviour
     private int bulletNumber = 0;
     public SpotController spotController;
     Vector2 mouseDirection = new Vector2();
+
+    public AudioSource deathAudio;
+    public AudioSource teleportAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -93,6 +96,8 @@ public class PlayerController : MonoBehaviour
                 transform.position = portal2.transform.position;
                 Destroy(portal1); // Destroy the collided portal
                 Destroy(portal2);
+                teleportAudio.enabled = true;
+                teleportAudio.Play();
             }
         }
         else if (collision.CompareTag("portal2"))
@@ -102,6 +107,8 @@ public class PlayerController : MonoBehaviour
                 transform.position = portal1.transform.position;
                 Destroy(portal1); // Destroy the collided portal
                 Destroy(portal2);
+                teleportAudio.enabled = true;
+                teleportAudio.Play();
             }
         }
     }
@@ -122,6 +129,12 @@ public class PlayerController : MonoBehaviour
 
             isInvincible = true;
             invincibleTimer = timeInvincible;
+        }
+        else
+        {
+            deathAudio.enabled = true;
+            deathAudio.Play();
+            Debug.Log("HP 0");
         }
 
         HP += value;

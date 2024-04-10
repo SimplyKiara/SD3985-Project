@@ -16,6 +16,8 @@ public class Bullet : MonoBehaviour
     float dirX = 0;
     float dirY = 0;
 
+    public AudioSource portalAudio;
+
     void Awake()
     {
         rigidbody2d = GetComponent<Rigidbody2D>();
@@ -82,7 +84,7 @@ public class Bullet : MonoBehaviour
                 Instantiate(portalPrefab2, transform.position, Quaternion.identity);
             }
 
-            Debug.Log("Bullet = " + bulletNumber);
+            portalAudio.Play();
         }
     }
 }

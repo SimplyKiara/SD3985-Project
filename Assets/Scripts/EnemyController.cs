@@ -24,7 +24,7 @@ public class EnemyController : MonoBehaviour
 
         if (player != null)
         {
-            player.ChangeHP(-5);
+            player.ChangeHP(-1);
         }
     }
 }
