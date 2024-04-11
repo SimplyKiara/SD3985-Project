@@ -55,6 +55,9 @@ TagManager:
   - name: Floor3
     uniqueID: 1981037923
     locked: 0
+  - name: Floor4
+    uniqueID: 2125375073
+    locked: 0
   - name: Ceiling
     uniqueID: 697338169
     locked: 0
