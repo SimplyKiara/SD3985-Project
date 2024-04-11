@@ -132,7 +132,6 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            deathAudio.enabled = true;
             deathAudio.Play();
             Debug.Log("HP 0");
         }

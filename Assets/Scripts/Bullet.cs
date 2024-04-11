@@ -65,25 +65,25 @@ public class Bullet : MonoBehaviour
     {
         rigidbody2d.AddForce(direction * force);
 
-        if (direction.x > 0)
-        {
-            dirX = 0.5f;
-        }
-        else if (direction.x < 0)
-        {
-            dirX = -0.5f;
-        }
-        animator.SetFloat("MoveX", dirX);
+        //if (direction.x > 0)
+        //{
+        //    dirX = 0.5f;
+        //}
+        //else if (direction.x < 0)
+        //{
+        //    dirX = -0.5f;
+        //}
+        //animator.SetFloat("MoveX", dirX);
 
-        if (direction.y > 0)
-        {
-            dirY = 0.5f;
-        }
-        else if (direction.y < 0)
-        {
-            dirY = -0.5f;
-        }
-        animator.SetFloat("MoveY", dirY);
+        //if (direction.y > 0)
+        //{
+        //    dirY = 0.5f;
+        //}
+        //else if (direction.y < 0)
+        //{
+        //    dirY = -0.5f;
+        //}
+        //animator.SetFloat("MoveY", dirY);
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
@@ -94,16 +94,27 @@ public class Bullet : MonoBehaviour
 
             Destroy(gameObject);
 
-            if (rotation2.z < 0)
-            {
-                GameObject Object = Instantiate(portalPrefab1, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-            }
-            else if (rotation2.z > 0)
-            {
-                GameObject Object = Instantiate(portalPrefab2, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
-            }
-                
+            //if (rotation2.z < 0)
+            //{
+            //    GameObject Object = Instantiate(portalPrefab1, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+            //}
+            //else if (rotation2.z > 0)
+            //{
+            //    GameObject Object = Instantiate(portalPrefab2, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
+            //}
 
+            if (bulletNumber % 2 == 1)
+            {
+                Instantiate(portalPrefab1, transform.position, Quaternion.identity);
+            }
+            else
+            {
+                Instantiate(portalPrefab2, transform.position, Quaternion.identity);
+            }
+
+            Debug.Log("Bullet = " + bulletNumber);
+
+            portalAudio.enabled = true;
             portalAudio.Play();
         }
     }
