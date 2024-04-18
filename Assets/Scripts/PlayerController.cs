@@ -12,7 +12,7 @@ public class PlayerController : MonoBehaviour
     float previousLook = 1f;
 
     private int collected = 0;
-    private int HP = 1;
+    public int HP = 1;
     public int MaxHP;
     public int currentHP { get => HP; }
 
@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("LookX", 1f);
         invincibleTimer = timeInvincible;
+        HP = MaxHP;
     }
 
     // Update is called once per frame
@@ -122,24 +123,21 @@ public class PlayerController : MonoBehaviour
 
     public void ChangeHP(int value)
     {
-        if (value < 0)
-        {
-            if (isInvincible)
-                return;
+        if (isInvincible)
+            return;
 
-            isInvincible = true;
-            invincibleTimer = timeInvincible;
-        }
-        else
-        {
-            deathAudio.Play();
-            Debug.Log("HP 0");
-        }
+        isInvincible = true;
+        invincibleTimer = timeInvincible;
 
         HP += value;
         HP = Mathf.Clamp(HP, 0, MaxHP);
 
         Debug.Log("Current HP: " + HP + "/" + MaxHP);
+        if (HP <= 0)
+        {
+            deathAudio.Play();
+            Debug.Log("HP 0");
+        }
     }
 
     void Launch()
@@ -147,7 +145,7 @@ public class PlayerController : MonoBehaviour
         GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.up * 0.5f, Quaternion.identity);
         Bullet projectile = projectileObject.GetComponent<Bullet>();
         projectile.Initialize(this);
-        
+
         projectile.Launch(mouseDirection - this.gameObject.transform.position, 500);
     }
 
