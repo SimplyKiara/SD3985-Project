@@ -13,14 +13,13 @@ public class Bullet : MonoBehaviour
 
     float flightTime = 5.0f;
     float timeLeft;
-    float dirX = 0;
-    float dirY = 0;
 
     public Vector2 currentlocation;
     public Vector2 previouslocation;
     public Vector2 direction;
     public Quaternion rotation;
     public Quaternion rotation2;
+    bool leftright;   // false: left; true: right
 
     public AudioSource portalAudio;
 
@@ -63,7 +62,19 @@ public class Bullet : MonoBehaviour
 
     public void Launch(Vector3 direction, float force)
     {
-        rigidbody2d.AddForce(direction * force);
+        float x = direction.x/(Mathf.Abs(direction.x)+Mathf.Abs(direction.y));
+        float y = direction.y/(Mathf.Abs(direction.x) + Mathf.Abs(direction.y));
+        Vector3 direction1 = new Vector3(x, y,0);
+        rigidbody2d.AddForce(direction1 * force / Mathf.Pow((Mathf.Pow(x,2))+(Mathf.Pow(y,2)),0.5f));
+
+        if (direction.x < 0)
+        {
+            leftright = false;
+        }
+        else if (direction.x > 0)
+        {
+            leftright = true;
+        }
 
         //if (direction.x > 0)
         //{
@@ -105,11 +116,26 @@ public class Bullet : MonoBehaviour
 
             if (bulletNumber % 2 == 1)
             {
-                Instantiate(portalPrefab1, transform.position, Quaternion.identity);
+                if (leftright == false)
+                {
+                    Instantiate(portalPrefab1, collision.transform.position + new Vector3(1,0,0), Quaternion.identity);
+                }
+                if (leftright == true)
+                {
+                    Instantiate(portalPrefab1, collision.transform.position - new Vector3(1,0,0), Quaternion.identity);
+                }
+
             }
             else
             {
-                Instantiate(portalPrefab2, transform.position, Quaternion.identity);
+                if (leftright == false)
+                {
+                    Instantiate(portalPrefab2, collision.transform.position + new Vector3(1,0,0), Quaternion.identity);
+                }
+                if (leftright == true)
+                {
+                    Instantiate(portalPrefab2, collision.transform.position - new Vector3(1,0,0), Quaternion.identity);
+                }
             }
 
             Debug.Log("Bullet = " + bulletNumber);
