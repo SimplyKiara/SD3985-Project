@@ -24,6 +24,7 @@ public class Bullet : MonoBehaviour
     bool leftright;   // false: left direction; true: right direction
 
     int bulletNumber;
+    GameObject portal1;
 
     public AudioSource portalAudio;
 
@@ -56,6 +57,7 @@ public class Bullet : MonoBehaviour
     void FixedUpdate()
     {
         // bullet direction
+
         previouslocation = currentlocation;
         currentlocation = transform.position;
         direction = currentlocation - previouslocation;
@@ -73,6 +75,8 @@ public class Bullet : MonoBehaviour
         {
             this.leftright = true;
         }
+
+        portal1 = GameObject.FindGameObjectWithTag("portal1");
     }
 
     public void Launch(Vector3 direction, float force)
@@ -130,19 +134,19 @@ public class Bullet : MonoBehaviour
             //{
             //    GameObject Object = Instantiate(portalPrefab2, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
             //}
-            if (leftright == false && bulletNumber==1)
+            if (leftright == false && portal1 == null)
             {
                 Instantiate(portalleftPrefab1, collision.transform.position + new Vector3(1,0,0), Quaternion.identity);
             }
-            else if (leftright == false && bulletNumber == 2)
+            else if (leftright == false && portal1 != null)
             {
                 Instantiate(portalleftPrefab2, collision.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
             }
-            else if (leftright == true && bulletNumber == 1)
+            else if (leftright == true && portal1 == null)
             {
                 Instantiate(portalrightPrefab1, collision.transform.position - new Vector3(1,0,0), Quaternion.identity);
             }
-            else if (leftright == true && bulletNumber == 2)
+            else if (leftright == true && portal1 != null)
             {
                 Instantiate(portalrightPrefab2, collision.transform.position - new Vector3(1, 0, 0), Quaternion.identity);
             }

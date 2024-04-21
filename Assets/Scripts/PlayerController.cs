@@ -79,6 +79,18 @@ public class PlayerController : MonoBehaviour
         {
             Launch();
         }
+        // portal cancellation
+        if (Input.GetMouseButtonDown(1) && portal1 != null && portal2 == null)
+        {
+            Destroy(portal1);
+            DiminishmentBulletNumber();
+        }
+        if (Input.GetMouseButtonDown(1) && portal2 != null)
+        {
+            Destroy(portal1);
+            Destroy(portal2);
+            ClearBulletNumber();
+        }
     }
 
     private void FixedUpdate()
@@ -146,7 +158,7 @@ public class PlayerController : MonoBehaviour
 
     void Launch()
     {
-        GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.right * 1f, Quaternion.identity);
+        GameObject projectileObject = Instantiate(projectilePrefab, rb.position, Quaternion.identity);
         Bullet projectile = projectileObject.GetComponent<Bullet>();
         projectile.Initialize(this);
 
