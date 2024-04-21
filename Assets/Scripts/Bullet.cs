@@ -58,6 +58,14 @@ public class Bullet : MonoBehaviour
         rotation2.z = rotation.z;
         rotation2.w = rotation.w;
         transform.rotation = rotation2;
+        if (direction.x < 0)
+        {
+            this.leftright = false;
+        }
+        else if (direction.x > 0)
+        {
+            this.leftright = true;
+        }
     }
 
     public void Launch(Vector3 direction, float force)
@@ -69,11 +77,11 @@ public class Bullet : MonoBehaviour
 
         if (direction.x < 0)
         {
-            leftright = false;
+            this.leftright = false;
         }
         else if (direction.x > 0)
         {
-            leftright = true;
+            this.leftright = true;
         }
 
         //if (direction.x > 0)
@@ -98,7 +106,7 @@ public class Bullet : MonoBehaviour
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("wall"))
+        if (collision.CompareTag("wall") )
         {
             player.IncrementBulletNumber();
             int bulletNumber = player.GetBulletNumber();
@@ -113,29 +121,13 @@ public class Bullet : MonoBehaviour
             //{
             //    GameObject Object = Instantiate(portalPrefab2, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
             //}
-
-            if (bulletNumber % 2 == 1)
+            if (leftright == false)
             {
-                if (leftright == false)
-                {
-                    Instantiate(portalPrefab1, collision.transform.position + new Vector3(1,0,0), Quaternion.identity);
-                }
-                if (leftright == true)
-                {
-                    Instantiate(portalPrefab1, collision.transform.position - new Vector3(1,0,0), Quaternion.identity);
-                }
-
+                Instantiate(portalPrefab1, collision.transform.position + new Vector3(1,0,0), Quaternion.identity);
             }
-            else
+            else if (leftright == true)
             {
-                if (leftright == false)
-                {
-                    Instantiate(portalPrefab2, collision.transform.position + new Vector3(1,0,0), Quaternion.identity);
-                }
-                if (leftright == true)
-                {
-                    Instantiate(portalPrefab2, collision.transform.position - new Vector3(1,0,0), Quaternion.identity);
-                }
+                Instantiate(portalPrefab2, collision.transform.position - new Vector3(1,0,0), Quaternion.identity);
             }
 
             Debug.Log("Bullet = " + bulletNumber);

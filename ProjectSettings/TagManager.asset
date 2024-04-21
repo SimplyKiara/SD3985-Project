@@ -64,9 +64,9 @@ TagManager:
   - name: Portal
     uniqueID: 1454654823
     locked: 0
-  - name: Character
-    uniqueID: 3202810711
-    locked: 0
   - name: Projectile
     uniqueID: 2189905901
+    locked: 0
+  - name: Character
+    uniqueID: 3202810711
     locked: 0
