@@ -74,7 +74,8 @@ public class PlayerController : MonoBehaviour
         }
 
         // shooting
-        if (Input.GetMouseButtonDown(0))
+
+        if (Input.GetMouseButtonDown(0) && bulletNumber < 2)
         {
             Launch();
         }
@@ -88,6 +89,7 @@ public class PlayerController : MonoBehaviour
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
     }
 
+    // portal
     public void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("portal1"))
@@ -99,6 +101,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(portal2);
                 teleportAudio.enabled = true;
                 teleportAudio.Play();
+                ClearBulletNumber();
             }
         }
         else if (collision.CompareTag("portal2"))
@@ -110,6 +113,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(portal2);
                 teleportAudio.enabled = true;
                 teleportAudio.Play();
+                ClearBulletNumber();
             }
         }
     }
@@ -142,7 +146,7 @@ public class PlayerController : MonoBehaviour
 
     void Launch()
     {
-        GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.up * 0.5f, Quaternion.identity);
+        GameObject projectileObject = Instantiate(projectilePrefab, rb.position + Vector2.right * 1f, Quaternion.identity);
         Bullet projectile = projectileObject.GetComponent<Bullet>();
         projectile.Initialize(this);
 
@@ -157,5 +161,14 @@ public class PlayerController : MonoBehaviour
     public void IncrementBulletNumber()
     {
         bulletNumber++;
+    }
+    public void DiminishmentBulletNumber()
+    {
+        bulletNumber--;
+    }
+
+    public void ClearBulletNumber()
+    {
+        bulletNumber = 0;
     }
 }

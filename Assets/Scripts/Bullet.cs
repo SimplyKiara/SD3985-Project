@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public GameObject portalPrefab1;
-    public GameObject portalPrefab2;
+    public GameObject portalrightPrefab1;
+    public GameObject portalrightPrefab2;
+    public GameObject portalleftPrefab1;
+    public GameObject portalleftPrefab2;
 
     Rigidbody2D rigidbody2d;
     Animator animator;
@@ -19,7 +21,9 @@ public class Bullet : MonoBehaviour
     public Vector2 direction;
     public Quaternion rotation;
     public Quaternion rotation2;
-    bool leftright;   // false: left; true: right
+    bool leftright;   // false: left direction; true: right direction
+
+    int bulletNumber;
 
     public AudioSource portalAudio;
 
@@ -43,6 +47,9 @@ public class Bullet : MonoBehaviour
         if (timeLeft <= 0)
         {
             Destroy(gameObject);
+            player.DiminishmentBulletNumber();
+
+
         }
     }
 
@@ -70,6 +77,9 @@ public class Bullet : MonoBehaviour
 
     public void Launch(Vector3 direction, float force)
     {
+        player.IncrementBulletNumber();
+        bulletNumber = player.GetBulletNumber();
+        Debug.Log("Bullet = " + bulletNumber);
         float x = direction.x/(Mathf.Abs(direction.x)+Mathf.Abs(direction.y));
         float y = direction.y/(Mathf.Abs(direction.x) + Mathf.Abs(direction.y));
         Vector3 direction1 = new Vector3(x, y,0);
@@ -108,8 +118,7 @@ public class Bullet : MonoBehaviour
     {
         if (collision.CompareTag("wall") )
         {
-            player.IncrementBulletNumber();
-            int bulletNumber = player.GetBulletNumber();
+
 
             Destroy(gameObject);
 
@@ -121,16 +130,24 @@ public class Bullet : MonoBehaviour
             //{
             //    GameObject Object = Instantiate(portalPrefab2, rigidbody2d.position + Vector2.up * 0.5f, Quaternion.identity);
             //}
-            if (leftright == false)
+            if (leftright == false && bulletNumber==1)
             {
-                Instantiate(portalPrefab1, collision.transform.position + new Vector3(1,0,0), Quaternion.identity);
+                Instantiate(portalleftPrefab1, collision.transform.position + new Vector3(1,0,0), Quaternion.identity);
             }
-            else if (leftright == true)
+            else if (leftright == false && bulletNumber == 2)
             {
-                Instantiate(portalPrefab2, collision.transform.position - new Vector3(1,0,0), Quaternion.identity);
+                Instantiate(portalleftPrefab2, collision.transform.position + new Vector3(1, 0, 0), Quaternion.identity);
+            }
+            else if (leftright == true && bulletNumber == 1)
+            {
+                Instantiate(portalrightPrefab1, collision.transform.position - new Vector3(1,0,0), Quaternion.identity);
+            }
+            else if (leftright == true && bulletNumber == 2)
+            {
+                Instantiate(portalrightPrefab2, collision.transform.position - new Vector3(1, 0, 0), Quaternion.identity);
             }
 
-            Debug.Log("Bullet = " + bulletNumber);
+
 
             portalAudio.enabled = true;
             portalAudio.Play();

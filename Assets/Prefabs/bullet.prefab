@@ -74,7 +74,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2105061395
-  m_SortingLayer: 8
+  m_SortingLayer: 7
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 12fb7754b2865e545bbc11308365b492, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -121,9 +121,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.041822195, y: 0.03}
+  m_Offset: {x: -0.014276862, y: 0.030000001}
   serializedVersion: 2
-  m_Radius: 0.2201128
+  m_Radius: 0.19684994
 --- !u!114 &9069591990623474092
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -136,8 +136,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b3a992c3d0b08b34a9b7faf99cfc82c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  portalPrefab1: {fileID: 5179804331934380804, guid: 6a139ea7bcaedea428c9d5d6e71e55a4, type: 3}
-  portalPrefab2: {fileID: 2586032316031626151, guid: 3f4df05364b3f8f478ebc1d5d5577e11, type: 3}
+  portalrightPrefab1: {fileID: 5537425305995349900, guid: 90519e460347e9f42a09f607a29f7a3a, type: 3}
+  portalrightPrefab2: {fileID: 7812820325471739631, guid: ecc664917334f194cac096c4f72c6bc7, type: 3}
+  portalleftPrefab1: {fileID: 806701946879322371, guid: 99fe00e11a66d424bbcf8bdb19bb8b86, type: 3}
+  portalleftPrefab2: {fileID: 8045443223450280947, guid: b5c0285555b020f468bd90d7d1dfc8ae, type: 3}
   currentlocation: {x: 0, y: 0}
   previouslocation: {x: 0, y: 0}
   direction: {x: 0, y: 0}
