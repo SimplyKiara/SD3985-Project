@@ -99,6 +99,9 @@ public class PlayerController : MonoBehaviour
         portal2 = GameObject.FindGameObjectWithTag("portal2");
         horizontal = Input.GetAxis("Horizontal");
         rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+
+        //trajectory
+        RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
     }
 
     // portal
@@ -163,6 +166,7 @@ public class PlayerController : MonoBehaviour
         projectile.Initialize(this);
 
         projectile.Launch(mouseDirection - this.gameObject.transform.position, 500);
+
     }
 
     public int GetBulletNumber()

@@ -9,6 +9,7 @@ TagManager:
   - diamond
   - wall
   - Pointer
+  - floor
   layers:
   - Default
   - TransparentFX
@@ -16,8 +17,8 @@ TagManager:
   - 
   - Water
   - UI
-  - Flooring
-  - Ceiling
+  - Floor
+  - Wall
   - Player
   - Projectile
   - 
