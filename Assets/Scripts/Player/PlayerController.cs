@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class PlayerController : MonoBehaviour
     float previousLook = 1f;
 
     private int collected = 0;
+    private bool levelCompleted = false;
 
     GameObject portal1;
     GameObject portal2;
@@ -24,6 +26,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource teleportAudio;
     public AudioSource openPortalAudio;
     public AudioSource collectAudio;
+    public AudioSource walkingAudio;
+    public AudioSource winAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -51,10 +55,13 @@ public class PlayerController : MonoBehaviour
                 animator.SetFloat("LookX", -1f);
                 previousLook = -1f;
             }
+
+            walkingAudio.enabled = true;
         }
         else
         {
             animator.SetFloat("LookX", previousLook);
+            walkingAudio.enabled = false;
         }
 
         // shooting
@@ -98,7 +105,6 @@ public class PlayerController : MonoBehaviour
                 transform.position = portal2.transform.position;
                 Destroy(portal1); // Destroy the collided portal
                 Destroy(portal2);
-                teleportAudio.enabled = true;
                 teleportAudio.Play();
                 ClearBulletNumber();
             }
@@ -110,11 +116,23 @@ public class PlayerController : MonoBehaviour
                 transform.position = portal1.transform.position;
                 Destroy(portal1); // Destroy the collided portal
                 Destroy(portal2);
-                teleportAudio.enabled = true;
                 teleportAudio.Play();
                 ClearBulletNumber();
             }
         }
+
+        if ((collision.CompareTag("door") && !levelCompleted ))
+        {
+            levelCompleted = true;
+            winAudio.Play();
+            rb.bodyType = RigidbodyType2D.Static;
+            Invoke("LeaveLevel", 5.0f);
+        }
+    }
+
+    private void LeaveLevel()
+    {
+        SceneManager.LoadScene(0);
     }
 
     public void PortalSound()

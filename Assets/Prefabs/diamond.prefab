@@ -96,7 +96,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ff2436de2121c5b48a2d537ebc9be3fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  collectAudio: {fileID: 8300000, guid: fde6c087aca28314b99c4f0277a03517, type: 3}
 --- !u!60 &1065746437
 PolygonCollider2D:
   m_ObjectHideFlags: 0

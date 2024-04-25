@@ -4,3 +4,4 @@ Wind - Go through portal
 Teleport - same
 Step rock - Walking
 Heal - Collect diamond
+goodresult - Level clear
