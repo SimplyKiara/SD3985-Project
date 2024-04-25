@@ -13,10 +13,6 @@ public class PlayerController : MonoBehaviour
 
     private int collected = 0;
 
-    public float timeInvincible = 2.0f;
-    bool isInvincible = false;
-    public float invincibleTimer;
-
     GameObject portal1;
     GameObject portal2;
 
@@ -36,7 +32,6 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         animator.SetFloat("LookX", 1f);
-        invincibleTimer = timeInvincible;
     }
 
     // Update is called once per frame
@@ -60,14 +55,6 @@ public class PlayerController : MonoBehaviour
         else
         {
             animator.SetFloat("LookX", previousLook);
-        }
-
-        // damage cd
-        if (isInvincible)
-        {
-            invincibleTimer -= Time.deltaTime;
-            if (invincibleTimer < 0)
-                isInvincible = false;
         }
 
         // shooting
