@@ -12,9 +12,6 @@ public class PlayerController : MonoBehaviour
     float previousLook = 1f;
 
     private int collected = 0;
-    public int HP = 1;
-    public int MaxHP;
-    public int currentHP { get => HP; }
 
     public float timeInvincible = 2.0f;
     bool isInvincible = false;
@@ -28,8 +25,8 @@ public class PlayerController : MonoBehaviour
     public SpotController spotController;
     public Vector3 mouseDirection = new Vector2();
 
-    public AudioSource deathAudio;
     public AudioSource teleportAudio;
+    public AudioSource collectAudio;
 
     // Start is called before the first frame update
     void Start()
@@ -39,7 +36,6 @@ public class PlayerController : MonoBehaviour
 
         animator.SetFloat("LookX", 1f);
         invincibleTimer = timeInvincible;
-        HP = MaxHP;
     }
 
     // Update is called once per frame
@@ -137,26 +133,8 @@ public class PlayerController : MonoBehaviour
     public void CollectibleAmount()
     {
         collected += 1;
+        collectAudio.Play();
         Debug.Log("Diamond collected: " + collected);
-    }
-
-    public void ChangeHP(int value)
-    {
-        if (isInvincible)
-            return;
-
-        isInvincible = true;
-        invincibleTimer = timeInvincible;
-
-        HP += value;
-        HP = Mathf.Clamp(HP, 0, MaxHP);
-
-        Debug.Log("Current HP: " + HP + "/" + MaxHP);
-        if (HP <= 0)
-        {
-            deathAudio.Play();
-            Debug.Log("HP 0");
-        }
     }
 
     void Launch()

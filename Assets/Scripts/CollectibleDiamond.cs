@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class CollectibleDiamond : MonoBehaviour
 {
-    public AudioSource collectAudio;
 
     // called when other objects enter trigger zone
     private void OnTriggerEnter2D(Collider2D collision)
@@ -14,8 +13,6 @@ public class CollectibleDiamond : MonoBehaviour
             PlayerController controller = collision.GetComponent<PlayerController>();
             controller.CollectibleAmount();
             Destroy(this.gameObject);
-            collectAudio.enabled = true;
-            collectAudio.Play();
             //Debug.Log("Player health: " + controller.HP);
         }
     }
