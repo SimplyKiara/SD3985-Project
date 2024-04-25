@@ -26,8 +26,6 @@ public class Bullet : MonoBehaviour
     int bulletNumber;
     GameObject portal1;
 
-    public AudioSource portalAudio;
-
     void Awake()
     {
         currentlocation = transform.position;
@@ -151,10 +149,7 @@ public class Bullet : MonoBehaviour
                 Instantiate(portalrightPrefab2, collision.transform.position - new Vector3(1, 0, 0), Quaternion.identity);
             }
 
-
-
-            portalAudio.enabled = true;
-            portalAudio.Play();
+            player.PortalSound();
         }
     }
 }

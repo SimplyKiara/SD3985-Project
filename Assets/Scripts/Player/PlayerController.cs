@@ -26,6 +26,7 @@ public class PlayerController : MonoBehaviour
     public Vector3 mouseDirection = new Vector2();
 
     public AudioSource teleportAudio;
+    public AudioSource openPortalAudio;
     public AudioSource collectAudio;
 
     // Start is called before the first frame update
@@ -127,6 +128,11 @@ public class PlayerController : MonoBehaviour
                 ClearBulletNumber();
             }
         }
+    }
+
+    public void PortalSound()
+    {
+        openPortalAudio.Play();
     }
 
     // diamonds

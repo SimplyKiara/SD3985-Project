@@ -38,13 +38,8 @@ public class PlayerLife : MonoBehaviour
         Debug.Log("Player dead");
         deathAudio.Play();
         rb.bodyType = RigidbodyType2D.Static;
-        //anim.SetTrigger("death");
-        RestartScene(3.0f);
-    }
-
-    private void RestartScene(float delay)
-    {
-        Invoke("RestartLevel", delay);
+        anim.SetTrigger("death");
+        Invoke("RestartLevel", 3.0f);
     }
 
     private void RestartLevel()
