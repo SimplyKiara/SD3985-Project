@@ -1,9 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using Cinemachine;
 
-public class VirtualCameraController : MonoBehaviour
+public class GameController : MonoBehaviour
 {
     public CinemachineVirtualCamera virtualCamera;
     public PlayerController player;
@@ -20,11 +21,11 @@ public class VirtualCameraController : MonoBehaviour
     void Update()
     {
         // shooting & zoom out
-        if (Input.GetMouseButtonDown(0) && player.bulletNumber < 2)
+        if (Input.GetMouseButtonDown(0) && player.bulletNumber < 2 && !EventSystem.current.IsPointerOverGameObject())
         {
             isMouseHeld = true;
         }
-        if (Input.GetMouseButtonUp(0) && player.bulletNumber < 2)
+        if (Input.GetMouseButtonUp(0) && player.bulletNumber < 2 && !EventSystem.current.IsPointerOverGameObject())
         {
             CancelInvoke("ZoomOut");
             isMouseHeld = false;
@@ -68,7 +69,7 @@ public class VirtualCameraController : MonoBehaviour
         {
             player.rb.velocity = new Vector2(player.horizontal * player.moveSpeed, player.rb.velocity.y);
         }
-        
+
     }
     void ZoomOut()
     {

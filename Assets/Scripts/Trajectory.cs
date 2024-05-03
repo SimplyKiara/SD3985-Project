@@ -24,35 +24,38 @@ public class Trajectory : MonoBehaviour
         Vector2 currentPosition = player.transform.position + new Vector3(2*x, 2*y, 0);
                                   //this.gameObject.transform.parent.gameObject.transform.position;
                                   //transform.position;
-
-        for (int i = 0; i < pointNumber; i++)
+        if (Time.timeScale != 0)
         {
-            //float time = i * timeGap;
-
-            Vector2 nextPoint = currentPosition + predictedVelocity * timeGap;
-            
-            RaycastHit2D hit = Physics2D.Linecast(currentPosition, nextPoint, collisionLayerMask);
-            if (hit.collider != null)
+            for (int i = 0; i < pointNumber; i++)
             {
-                if (hit.collider.tag == "floor")
-                {
-                    //currentPosition = hit.point;
-                    predictedVelocity = Vector2.Reflect(predictedVelocity, hit.normal);
-                    nextPoint = currentPosition + predictedVelocity * timeGap;
-                }
-                else if(hit.collider.tag == "wall") 
-                {
-                    predictedVelocity = new Vector2(0, 0);
-                }
-            }
-           
-            pointList.Add(nextPoint);
-            currentPosition = nextPoint;
+                //float time = i * timeGap;
+
+                Vector2 nextPoint = currentPosition + predictedVelocity * timeGap;
             
+                RaycastHit2D hit = Physics2D.Linecast(currentPosition, nextPoint, collisionLayerMask);
+                if (hit.collider != null)
+                {
+                    if (hit.collider.tag == "floor")
+                    {
+                        //currentPosition = hit.point;
+                        predictedVelocity = Vector2.Reflect(predictedVelocity, hit.normal);
+                        nextPoint = currentPosition + predictedVelocity * timeGap;
+                    }
+                    else if(hit.collider.tag == "wall") 
+                    {
+                        predictedVelocity = new Vector2(0, 0);
+                    }
+                }
+           
+                pointList.Add(nextPoint);
+                currentPosition = nextPoint;
+            
+            }
+            lineRenderer.positionCount = pointList.Count;
+            //lineRenderer.positionCount = 10;
+            lineRenderer.SetPositions(pointList.ToArray());
         }
-        lineRenderer.positionCount = pointList.Count;
-        //lineRenderer.positionCount = 10;
-        lineRenderer.SetPositions(pointList.ToArray());
+
     }
 }
 
