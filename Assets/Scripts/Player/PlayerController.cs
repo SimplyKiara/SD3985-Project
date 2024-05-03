@@ -5,21 +5,21 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    Rigidbody2D rb;
-    Animator animator;
+    public Rigidbody2D rb;
+    public Animator animator;
 
     public float moveSpeed = 0f;
-    float horizontal;
-    float previousLook = 1f;
+    public float horizontal;
+    public float previousLook = 1f;
 
     private int collected = 0;
     private bool levelCompleted = false;
 
-    GameObject portal1;
-    GameObject portal2;
+    public GameObject portal1;
+    public GameObject portal2;
 
     public GameObject projectilePrefab;
-    private int bulletNumber = 0;
+    public int bulletNumber = 0;
     public SpotController spotController;
     public Vector3 mouseDirection = new Vector2();
 
@@ -28,6 +28,8 @@ public class PlayerController : MonoBehaviour
     public AudioSource collectAudio;
     public AudioSource walkingAudio;
     public AudioSource winAudio;
+
+    
 
     // Start is called before the first frame update
     void Start()
@@ -65,7 +67,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // shooting
-
+        /*
         if (Input.GetMouseButtonDown(0) && bulletNumber < 2)
         {
             Launch();
@@ -82,14 +84,15 @@ public class PlayerController : MonoBehaviour
             Destroy(portal2);
             ClearBulletNumber();
         }
+        */
     }
 
     private void FixedUpdate()
     {
         portal1 = GameObject.FindGameObjectWithTag("portal1");
         portal2 = GameObject.FindGameObjectWithTag("portal2");
-        horizontal = Input.GetAxis("Horizontal");
-        rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
+        //horizontal = Input.GetAxis("Horizontal");
+        //rb.velocity = new Vector2(horizontal * moveSpeed, rb.velocity.y);
 
         //trajectory
         RaycastHit2D hit = Physics2D.Raycast(transform.position, -Vector2.up);
@@ -148,7 +151,7 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Diamond collected: " + collected);
     }
 
-    void Launch()
+    public void Launch()
     {
         GameObject projectileObject = Instantiate(projectilePrefab, rb.position, Quaternion.identity);
         Bullet projectile = projectileObject.GetComponent<Bullet>();
