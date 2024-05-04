@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
 
     public bool isMouseHeld = false;
     private bool cancelshot = false;
+    public float largestCameraSize;   //8.45f
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +21,7 @@ public class GameController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        // shooting & zoom out
+        // shooting
         if (Input.GetMouseButtonDown(0) && player.bulletNumber < 2 && !EventSystem.current.IsPointerOverGameObject())
         {
             isMouseHeld = true;
@@ -36,10 +37,9 @@ public class GameController : MonoBehaviour
             }
             cancelshot = false;
         }
-        if (isMouseHeld == true && virtualCamera.m_Lens.OrthographicSize <= 8.5f)
-        {
-            Invoke("ZoomOut", 0.1f);
-        }
+
+
+        // zoom out cancellation
         if (isMouseHeld == true && Input.GetMouseButtonUp(1))
         {
             virtualCamera.m_Lens.OrthographicSize = 5f;
@@ -48,12 +48,12 @@ public class GameController : MonoBehaviour
         }
 
         // portal cancellation
-        if (isMouseHeld == false && Input.GetMouseButtonDown(1) && player.portal1 != null && player.portal2 == null)
+        if (isMouseHeld == false && Input.GetMouseButtonDown(1) && player.portal1 != null && player.portal2 == null && Time.timeScale != 0)
         {
             Destroy(player.portal1);
             player.DiminishmentBulletNumber();
         }
-        if (isMouseHeld == false && Input.GetMouseButtonDown(1) && player.portal2 != null)
+        if (isMouseHeld == false && Input.GetMouseButtonDown(1) && player.portal2 != null && Time.timeScale != 0)
         {
             Destroy(player.portal1);
             Destroy(player.portal2);
@@ -68,6 +68,12 @@ public class GameController : MonoBehaviour
         if (isMouseHeld == false)
         {
             player.rb.velocity = new Vector2(player.horizontal * player.moveSpeed, player.rb.velocity.y);
+        }   
+        
+        //zoom out
+        if (isMouseHeld == true && virtualCamera.m_Lens.OrthographicSize <= largestCameraSize)
+        {
+            Invoke("ZoomOut", 0.1f);
         }
 
     }
