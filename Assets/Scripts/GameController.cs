@@ -22,16 +22,16 @@ public class GameController : MonoBehaviour
     void Update()
     {
         // shooting
-        if (Input.GetMouseButtonDown(0) && player.bulletNumber < 2 && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             isMouseHeld = true;
         }
-        if (Input.GetMouseButtonUp(0) && player.bulletNumber < 2 && !EventSystem.current.IsPointerOverGameObject())
+        if (Input.GetMouseButtonUp(0) && !EventSystem.current.IsPointerOverGameObject())
         {
             CancelInvoke("ZoomOut");
             isMouseHeld = false;
             virtualCamera.m_Lens.OrthographicSize = 5f;
-            if (cancelshot == false)
+            if (cancelshot == false && player.bulletNumber < 2)
             {
                 player.Launch();
             }
