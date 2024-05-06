@@ -8,6 +8,8 @@ public class PlayerLife : MonoBehaviour
     private Rigidbody2D rb;
     private Animator anim;
 
+    bool isDead = false;
+
     public AudioSource deathAudio;
 
     private void Start()
@@ -18,17 +20,25 @@ public class PlayerLife : MonoBehaviour
 
     private void Update()
     {
-        //debug death
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (!isDead && gameObject.transform.position.y < -7)
         {
+            isDead = true;
             Die();
         }
+
+        //debug death
+        //if (!isDead && Input.GetKeyDown(KeyCode.Space))
+        //{
+        //    isDead = true;
+        //    Die();
+        //}
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Enemy"))
+        if (!isDead && collision.gameObject.CompareTag("Enemy"))
         {
+            isDead = true;
             Die();
         }
     }
