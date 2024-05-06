@@ -5,3 +5,7 @@ Teleport - same
 Step rock - Walking
 Heal - Collect diamond
 goodresult - Level clear
+Pause - Pause game
+Unpause - Resume game
+Confirm - Show hints
+Denied - Cancel hints
