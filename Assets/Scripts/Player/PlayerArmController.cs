@@ -10,11 +10,7 @@ public class PlayerArmController : MonoBehaviour
     Vector2 direction;
     Quaternion rotation;
     Quaternion rotation2;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    
 
     // Update is called once per frame
     public void Update()

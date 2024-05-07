@@ -238,8 +238,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 2.9529, y: 130}
-  m_SizeDelta: {x: 639.4348, y: 166.6362}
+  m_AnchoredPosition: {x: 0, y: 101.722694}
+  m_SizeDelta: {x: 995.4592, y: 247.0769}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &982057324
 MonoBehaviour:
@@ -274,7 +274,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Welcome
+  m_Text: 'Supreme Treasure
+
+    in the Last Dungeon'
 --- !u!222 &982057325
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -777,7 +779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000015736, y: 24.074}
+  m_AnchoredPosition: {x: -0.000015736, y: -56}
   m_SizeDelta: {x: 286.7085, y: 69.1316}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1538460381

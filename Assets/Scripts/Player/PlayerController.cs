@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour
     public AudioSource collectAudio;
     public AudioSource walkingAudio;
     public AudioSource winAudio;
-
     
 
     // Start is called before the first frame update
@@ -110,6 +109,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(portal2);
                 teleportAudio.Play();
                 ClearBulletNumber();
+                TextManager.instance.ReducePortals();
             }
         }
         else if (collision.CompareTag("portal2"))
@@ -121,6 +121,7 @@ public class PlayerController : MonoBehaviour
                 Destroy(portal2);
                 teleportAudio.Play();
                 ClearBulletNumber();
+                TextManager.instance.ReducePortals();
             }
         }
 

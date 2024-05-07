@@ -12,15 +12,23 @@ public class GameController : MonoBehaviour
     public bool isMouseHeld = false;
     private bool cancelshot = false;
     public float largestCameraSize;   //8.45f
+
+    int portalsLeft;
+    public AudioSource deniedAudio;
+
     // Start is called before the first frame update
     void Start()
     {
         virtualCamera.m_Lens.OrthographicSize = 5f;
+
+        portalsLeft = TextManager.instance.portals;
     }
 
     // Update is called once per frame
     void Update()
     {
+        portalsLeft = TextManager.instance.portals;
+
         // shooting
         if (Input.GetMouseButtonDown(0) && !EventSystem.current.IsPointerOverGameObject())
         {
@@ -31,9 +39,13 @@ public class GameController : MonoBehaviour
             CancelInvoke("ZoomOut");
             isMouseHeld = false;
             virtualCamera.m_Lens.OrthographicSize = 5f;
-            if (cancelshot == false && player.bulletNumber < 2)
+            if (cancelshot == false && player.bulletNumber < 2 && portalsLeft > 0)
             {
                 player.Launch();
+            }
+            else
+            {
+                deniedAudio.Play();
             }
             cancelshot = false;
         }

@@ -8,4 +8,5 @@ goodresult - Level clear
 Pause - Pause game
 Unpause - Resume game
 Confirm - Show hints
-Denied - Cancel hints
+Decline - Cancel hints
+Denied - Reject portal bullet
