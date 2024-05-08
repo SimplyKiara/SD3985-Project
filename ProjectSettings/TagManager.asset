@@ -12,6 +12,7 @@ TagManager:
   - floor
   - Enemy
   - door
+  - LevelButton
   layers:
   - Default
   - TransparentFX

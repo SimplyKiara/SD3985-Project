@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
         animator = GetComponent<Animator>();
 
         animator.SetFloat("LookX", 1f);
+        
     }
 
     // Update is called once per frame
@@ -127,16 +128,25 @@ public class PlayerController : MonoBehaviour
 
         if ((collision.CompareTag("door") && !levelCompleted ))
         {
+            string currentSceneName = SceneManager.GetActiveScene().name;
+            int currentLevelIndex = int.Parse(currentSceneName.Substring("Level".Length));
+            int nextLevelIndex = currentLevelIndex + 1;
+            string nextLevelName = "Level" + nextLevelIndex.ToString();
+
             levelCompleted = true;
             winAudio.Play();
             rb.bodyType = RigidbodyType2D.Static;
+            //PlayerPrefs.SetInt("Level2", 1);
+            PlayerPrefs.SetInt(nextLevelName, 1);
+
             Invoke("LeaveLevel", 5.0f);
+
         }
     }
 
     private void LeaveLevel()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
 
     public void PortalSound()
