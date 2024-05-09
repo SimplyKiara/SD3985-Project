@@ -138,6 +138,7 @@ public class PlayerController : MonoBehaviour
             rb.bodyType = RigidbodyType2D.Static;
             //PlayerPrefs.SetInt("Level2", 1);
             PlayerPrefs.SetInt(nextLevelName, 1);
+            PlayerPrefs.SetInt(currentSceneName+"_score", collected);
 
             Invoke("LeaveLevel", 5.0f);
 

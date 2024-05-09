@@ -836,7 +836,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 1
+  m_Text: 
 --- !u!1 &6556789597855610274
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +946,7 @@ RectTransform:
   m_GameObject: {fileID: 6648435667234350667}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 0.56423175, y: 0.56423175, z: 0.56423175}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 573551133658330063}
@@ -1057,6 +1057,8 @@ MonoBehaviour:
   Star1: {fileID: 1319002074928236676}
   Star2: {fileID: 6916308030355960741}
   Star3: {fileID: 3305288235411624906}
+  Lock: {fileID: 7213620700396071174}
+  ButtonFrame: {fileID: 2357529681657391433}
 --- !u!95 &7455387809777833078
 Animator:
   serializedVersion: 5

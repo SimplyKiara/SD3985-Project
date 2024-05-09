@@ -11,6 +11,8 @@ public class LevelButton : MonoBehaviour
     public GameObject Star1;
     public GameObject Star2;
     public GameObject Star3;
+    public GameObject Lock;
+    public GameObject ButtonFrame;
 
 
     // Start is called before the first frame update
