@@ -5,16 +5,59 @@ using UnityEngine;
 public class EnemyController : MonoBehaviour
 {
     Rigidbody2D rb;
+    Animator animator;
+    private int currentWaypoint = 0;
+    public float speed;
 
-    // Start is called before the first frame update
-    void Start()
+    public float stoppingTime = 3.0f;
+    bool stopping = false;
+    float stopTimer;
+
+    public GameObject[] waypoints;
+
+    private void Start()
     {
-        
+        rb = GetComponent<Rigidbody2D>();
+        animator = GetComponent<Animator>();
+        stopTimer = stoppingTime;
+
+        animator.SetFloat("MoveX", 1f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (Vector2.Distance(waypoints[currentWaypoint].transform.position, transform.position) < 0.05f)
+        {
+            stopping = true;
+            currentWaypoint++;
+            if (currentWaypoint >= waypoints.Length)
+            {
+                currentWaypoint = 0;
+            }
+        }
+
+        if (stopping)
+        {
+            stopTimer -= Time.deltaTime;
+            if (stopTimer < 0)
+                stopping = false;
+        }
+        else
+        {
+            transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypoint].transform.position, Time.deltaTime * speed);
+            stopTimer = stoppingTime;
+        }
+
+        float movementDirection = waypoints[currentWaypoint].transform.position.x - transform.position.x;
+
+        if (movementDirection < 0f)
+        {
+            animator.SetFloat("MoveX", -1f);
+        }
+        else if (movementDirection > 0f)
+        {
+            animator.SetFloat("MoveX", 1f);
+        }
     }
 }
