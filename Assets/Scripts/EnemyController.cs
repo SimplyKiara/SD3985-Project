@@ -21,22 +21,23 @@ public class EnemyController : MonoBehaviour
         animator = GetComponent<Animator>();
         stopTimer = stoppingTime;
 
-        animator.SetFloat("MoveX", 1f);
+        animator.SetFloat("MoveX", -1f);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (waypoints !=  null)
+        if (waypoints != null && waypoints.Length > 0)
         {
-            if (Vector2.Distance(waypoints[currentWaypoint].transform.position, transform.position) < 0.05f)
+            if (currentWaypoint >= waypoints.Length)
+            {
+                currentWaypoint = 0;
+            }
+
+            if (Vector2.Distance(waypoints[currentWaypoint].transform.position, transform.position) < 0.5f)
             {
                 stopping = true;
                 currentWaypoint++;
-                if (currentWaypoint >= waypoints.Length)
-                {
-                    currentWaypoint = 0;
-                }
             }
 
             if (stopping)
@@ -55,14 +56,12 @@ public class EnemyController : MonoBehaviour
 
             if (movementDirection < 0f)
             {
-                animator.SetFloat("MoveX", -1f);
+                animator.SetFloat("MoveX", 1f);
             }
             else if (movementDirection > 0f)
             {
-                animator.SetFloat("MoveX", 1f);
+                animator.SetFloat("MoveX", -1f);
             }
         }
-
-        
     }
 }

@@ -20,8 +20,6 @@ public class LevelManager : MonoBehaviour
     public Transform Spacer;
 
     public List<Level> LevelList;
-    
-
 
     // Start is called before the first frame update
     void Start()
@@ -38,7 +36,7 @@ public class LevelManager : MonoBehaviour
             LevelButton button = newbutton.GetComponent<LevelButton>();
             button.LevelText.text = level.LevelText;
 
-            if (PlayerPrefs.GetInt("Level" + button.LevelText.text) == 1)
+            if (PlayerPrefs.GetInt("Level " + button.LevelText.text) == 1)
             {
                 level.UnLocked = 1;
                 level.IsInteractable = true;
@@ -65,25 +63,25 @@ public class LevelManager : MonoBehaviour
 
             }
 
-            if (PlayerPrefs.GetInt("Level" + button.LevelText.text + "_score") == 0)
+            if (PlayerPrefs.GetInt("Level " + button.LevelText.text + "_score") == 0)
             {
                 button.Star1.SetActive(false);
                 button.Star2.SetActive(false);
                 button.Star3.SetActive(false);
             }
 
-            if (PlayerPrefs.GetInt("Level" + button.LevelText.text + "_score") == 1)
+            if (PlayerPrefs.GetInt("Level " + button.LevelText.text + "_score") == 1)
             {
                 button.Star1.SetActive(true);
             }
 
-            if (PlayerPrefs.GetInt("Level" + button.LevelText.text + "_score") == 2)
+            if (PlayerPrefs.GetInt("Level " + button.LevelText.text + "_score") == 2)
             {
                 button.Star1.SetActive(true);
                 button.Star2.SetActive(true);
             }
 
-            if (PlayerPrefs.GetInt("Level" + button.LevelText.text + "_score") == 3)
+            if (PlayerPrefs.GetInt("Level  " + button.LevelText.text + "_score") == 3)
             {
                 button.Star1.SetActive(true);
                 button.Star2.SetActive(true);
@@ -109,7 +107,7 @@ public class LevelManager : MonoBehaviour
             foreach(GameObject buttons in allButtons)
             {
                 LevelButton button = buttons.GetComponent<LevelButton>();
-                PlayerPrefs.SetInt("Level" + button.LevelText.text, button.unlocked);
+                PlayerPrefs.SetInt("Level " + button.LevelText.text, button.unlocked);
             }
         }
     }
