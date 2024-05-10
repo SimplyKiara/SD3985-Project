@@ -27,37 +27,42 @@ public class EnemyController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector2.Distance(waypoints[currentWaypoint].transform.position, transform.position) < 0.05f)
+        if (waypoints !=  null)
         {
-            stopping = true;
-            currentWaypoint++;
-            if (currentWaypoint >= waypoints.Length)
+            if (Vector2.Distance(waypoints[currentWaypoint].transform.position, transform.position) < 0.05f)
             {
-                currentWaypoint = 0;
+                stopping = true;
+                currentWaypoint++;
+                if (currentWaypoint >= waypoints.Length)
+                {
+                    currentWaypoint = 0;
+                }
+            }
+
+            if (stopping)
+            {
+                stopTimer -= Time.deltaTime;
+                if (stopTimer < 0)
+                    stopping = false;
+            }
+            else
+            {
+                transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypoint].transform.position, Time.deltaTime * speed);
+                stopTimer = stoppingTime;
+            }
+
+            float movementDirection = waypoints[currentWaypoint].transform.position.x - transform.position.x;
+
+            if (movementDirection < 0f)
+            {
+                animator.SetFloat("MoveX", -1f);
+            }
+            else if (movementDirection > 0f)
+            {
+                animator.SetFloat("MoveX", 1f);
             }
         }
 
-        if (stopping)
-        {
-            stopTimer -= Time.deltaTime;
-            if (stopTimer < 0)
-                stopping = false;
-        }
-        else
-        {
-            transform.position = Vector2.MoveTowards(transform.position, waypoints[currentWaypoint].transform.position, Time.deltaTime * speed);
-            stopTimer = stoppingTime;
-        }
-
-        float movementDirection = waypoints[currentWaypoint].transform.position.x - transform.position.x;
-
-        if (movementDirection < 0f)
-        {
-            animator.SetFloat("MoveX", -1f);
-        }
-        else if (movementDirection > 0f)
-        {
-            animator.SetFloat("MoveX", 1f);
-        }
+        
     }
 }

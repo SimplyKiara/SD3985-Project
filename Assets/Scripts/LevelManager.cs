@@ -48,7 +48,7 @@ public class LevelManager : MonoBehaviour
        
             button.unlocked = level.UnLocked;
             button.GetComponent<Button>().interactable = level.IsInteractable;
-            button.GetComponent<Button>().onClick.AddListener(() => loadLevels("Level" + button.LevelText.text));
+            button.GetComponent<Button>().onClick.AddListener(() => loadLevels("Level " + button.LevelText.text));
 
             if (level.UnLocked == 0)
             {
