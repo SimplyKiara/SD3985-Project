@@ -36,7 +36,7 @@ public class LevelManager : MonoBehaviour
             LevelButton button = newbutton.GetComponent<LevelButton>();
             button.LevelText.text = level.LevelText;
 
-            if (PlayerPrefs.GetInt("Level " + button.LevelText.text) == 1)
+            if (PlayerPrefs.GetInt("Level" + button.LevelText.text) == 1)
             {
                 level.UnLocked = 1;
                 level.IsInteractable = true;
@@ -81,7 +81,7 @@ public class LevelManager : MonoBehaviour
                 button.Star2.SetActive(true);
             }
 
-            if (PlayerPrefs.GetInt("Level  " + button.LevelText.text + "_score") == 3)
+            if (PlayerPrefs.GetInt("Level " + button.LevelText.text + "_score") == 3)
             {
                 button.Star1.SetActive(true);
                 button.Star2.SetActive(true);
@@ -107,7 +107,7 @@ public class LevelManager : MonoBehaviour
             foreach(GameObject buttons in allButtons)
             {
                 LevelButton button = buttons.GetComponent<LevelButton>();
-                PlayerPrefs.SetInt("Level " + button.LevelText.text, button.unlocked);
+                PlayerPrefs.SetInt("Level" + button.LevelText.text, button.unlocked);
             }
         }
     }
