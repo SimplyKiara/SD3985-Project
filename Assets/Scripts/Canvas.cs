@@ -51,4 +51,7 @@ public class Canvas : MonoBehaviour
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
+
+
+
 }

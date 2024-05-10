@@ -93,6 +93,7 @@ public class LevelManager : MonoBehaviour
             newbutton.transform.SetParent(Spacer);
         }
         SaveAll();
+        
 
     }
 
