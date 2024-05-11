@@ -31,14 +31,14 @@ public class Canvas : MonoBehaviour
     public void HintsButton()
     {
         Time.timeScale = 0;
-        this.gameObject.transform.GetChild(3).gameObject.SetActive(true);
+        this.gameObject.transform.GetChild(7).gameObject.SetActive(true);
         hintsAudio.Play();
     }
 
     public void CancelButton()
     {
         Time.timeScale = 1;
-        this.gameObject.transform.GetChild(3).gameObject.SetActive(false);
+        this.gameObject.transform.GetChild(7).gameObject.SetActive(false);
         cancelAudio.Play();
         Debug.Log("Closed");
     }

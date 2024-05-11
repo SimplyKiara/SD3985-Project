@@ -15,6 +15,8 @@ public class GameController : MonoBehaviour
 
     int portalsLeft;
     public AudioSource deniedAudio;
+    
+    float timer = 0f;
 
     // Start is called before the first frame update
     void Start()
@@ -70,6 +72,14 @@ public class GameController : MonoBehaviour
             Destroy(player.portal1);
             Destroy(player.portal2);
             player.ClearBulletNumber();
+        }
+
+        // jump
+        timer += Time.deltaTime;
+        if (Input.GetKeyDown(KeyCode.Space) && timer >= 0.5f)
+        {
+            player.rb.AddForce(Vector2.up * 300);
+            timer = 0f;
         }
     }
 
