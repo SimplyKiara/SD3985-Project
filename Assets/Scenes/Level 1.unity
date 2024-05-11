@@ -205,6 +205,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   GameIntro: {fileID: 956402086}
+  HintBox: {fileID: 1049725409}
 --- !u!1 &64248310
 GameObject:
   m_ObjectHideFlags: 0
@@ -1397,6 +1398,11 @@ PrefabInstance:
 Transform:
   m_CorrespondingSourceObject: {fileID: 5976980360926724576, guid: 4a32f5d3ad29a0041bf6c224853ace47, type: 3}
   m_PrefabInstance: {fileID: 969973934}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1049725409 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2715188626760944890, guid: 407976fc35b1c214a83365c57eb85095, type: 3}
+  m_PrefabInstance: {fileID: 209538728}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1066689215
 PrefabInstance:

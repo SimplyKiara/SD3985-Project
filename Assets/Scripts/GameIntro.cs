@@ -5,6 +5,7 @@ using UnityEngine;
 public class PopupControl : MonoBehaviour
 {
     public GameObject GameIntro;
+    public GameObject HintBox;
     // Start is called before the first frame update
     void Start()
     {
@@ -35,5 +36,7 @@ public class PopupControl : MonoBehaviour
     public void closePopup()
     {
         GameIntro.gameObject.SetActive(false);
+        HintBox.gameObject.SetActive(true);
+
     }
 }
