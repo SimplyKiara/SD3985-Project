@@ -22,9 +22,9 @@ TagManager:
   - UI
   - Floor
   - Wall
-  - Player
+  - Player, Enemy
   - Projectile
-  - Enemy
+  - 
   - CameraConfiner
   - 
   - 
