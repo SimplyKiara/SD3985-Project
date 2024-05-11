@@ -5,10 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class Canvas : MonoBehaviour
 {
+
     public AudioSource pauseAudio;
     public AudioSource resumeAudio;
     public AudioSource hintsAudio;
     public AudioSource cancelAudio;
+
 
     public void PauseButton()
     {
@@ -51,6 +53,12 @@ public class Canvas : MonoBehaviour
         SceneManager.LoadScene(0);
         Time.timeScale = 1;
     }
+
+
+
+
+
+
 
 
 
