@@ -36,7 +36,7 @@ public class MainMenu : MonoBehaviour
     public void Load()
     {
         // Check if there is any saved PlayerPrefs data
-        if (PlayerPrefs.HasKey("Level1_score")) // Check for any key that indicates saved data
+        if (PlayerPrefs.HasKey("Level 1_score")) // Check for any key that indicates saved data
         {
             // Load the stage menu scene
             SceneManager.LoadScene("StageSelect");
