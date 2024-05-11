@@ -237,8 +237,8 @@ RectTransform:
   m_Children:
   - {fileID: 5207423995630336866}
   - {fileID: 9172656643341562219}
-  - {fileID: 617647010240189519}
   - {fileID: 8493280390002594571}
+  - {fileID: 617647010240189519}
   m_Father: {fileID: 5202619347318561635}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -562,7 +562,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 230, y: -27.158}
+  m_AnchoredPosition: {x: 230, y: -24.5}
   m_SizeDelta: {x: 398.2156, y: 54.315}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7661529203522728838
@@ -594,7 +594,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 8053142c88fbe9d41ae52e855042d456, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -1031,14 +1031,14 @@ RectTransform:
   m_GameObject: {fileID: 6999804651615267224}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.3, y: 0.3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 5202619347318561635}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 83, y: -81}
+  m_AnchoredPosition: {x: 32, y: -37.5}
   m_SizeDelta: {x: 201, y: 197}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &826528524219377870
@@ -1665,7 +1665,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   portalText: {fileID: 2547352193365888381}
   diamondText: {fileID: 385678793840639017}
-  portals: 3
+  portals: 4
 --- !u!1 &8526014369278025078
 GameObject:
   m_ObjectHideFlags: 0
@@ -1732,7 +1732,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 8053142c88fbe9d41ae52e855042d456, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0

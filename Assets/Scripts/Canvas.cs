@@ -40,6 +40,7 @@ public class Canvas : MonoBehaviour
         Time.timeScale = 1;
         this.gameObject.transform.GetChild(3).gameObject.SetActive(false);
         cancelAudio.Play();
+        Debug.Log("Closed");
     }
 
     public void RestartButton()
