@@ -74,6 +74,9 @@ TagManager:
   - name: Projectile
     uniqueID: 2189905901
     locked: 0
+  - name: Diamond
+    uniqueID: 2431186747
+    locked: 0
   - name: Character
     uniqueID: 3202810711
     locked: 0
