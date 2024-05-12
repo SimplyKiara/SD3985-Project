@@ -425,7 +425,7 @@ Transform:
   m_GameObject: {fileID: 115376445}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 59.72, y: 0, z: 0}
+  m_LocalPosition: {x: 58.01, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1003,7 +1003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5051710732980838002, guid: 79cc16fa52e1b994ca4ac10e57d51ed1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 58.2
+      value: 53.31
       objectReference: {fileID: 0}
     - target: {fileID: 5051710732980838002, guid: 79cc16fa52e1b994ca4ac10e57d51ed1, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2003,7 +2003,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4790635535960567, guid: d61dce7877f4b8146ad0e2374a38854b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.1
+      value: 52.45
       objectReference: {fileID: 0}
     - target: {fileID: 4790635535960567, guid: d61dce7877f4b8146ad0e2374a38854b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2314,7 +2314,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1092156585
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7c984c4f88fa0c847b1e04b7bbe5c8b8, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -3010,7 +3010,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1570987471247889883, guid: 244597f1bc869df40beb2df63f512343, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.099998474
+      value: -1.37
       objectReference: {fileID: 0}
     - target: {fileID: 1570987471247889883, guid: 244597f1bc869df40beb2df63f512343, type: 3}
       propertyPath: m_LocalPosition.y
@@ -19668,7 +19668,7 @@ Transform:
   m_GameObject: {fileID: 947285339}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -10.528591, y: 0.059999943, z: -10.5}
+  m_LocalPosition: {x: -10.032322, y: 0.059999943, z: -10.5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -19785,7 +19785,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7135234663858901726, guid: 78c59c6e753c2ae4f898ae81c58735a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 59.4
+      value: 57.57
       objectReference: {fileID: 0}
     - target: {fileID: 7135234663858901726, guid: 78c59c6e753c2ae4f898ae81c58735a5, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20062,7 +20062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8125066624797361627, guid: 4271ba771becebe48b568603016b300c, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.1
+      value: 52.45
       objectReference: {fileID: 0}
     - target: {fileID: 8125066624797361627, guid: 4271ba771becebe48b568603016b300c, type: 3}
       propertyPath: m_LocalPosition.y
@@ -20433,7 +20433,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1092156585
-  m_SortingLayer: 9
+  m_SortingLayer: 10
   m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: a174da27b52759c40a365cbc5a4e3583, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -22019,7 +22019,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4790635535960567, guid: d61dce7877f4b8146ad0e2374a38854b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 54.3
+      value: 52.469997
       objectReference: {fileID: 0}
     - target: {fileID: 4790635535960567, guid: d61dce7877f4b8146ad0e2374a38854b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -22922,7 +22922,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7135234663858901726, guid: 78c59c6e753c2ae4f898ae81c58735a5, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 55.5
+      value: 53.67
       objectReference: {fileID: 0}
     - target: {fileID: 7135234663858901726, guid: 78c59c6e753c2ae4f898ae81c58735a5, type: 3}
       propertyPath: m_LocalPosition.y
